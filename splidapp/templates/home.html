@@ -1,0 +1,62 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diviser</title>
+    <link rel="stylesheet" href="{% static 'css/home_css.css' %}">
+    <script src="{% static 'js/home.js' %}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+  
+  <script>
+    // Wait for the document to load
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set timeout to hide the error message div after 4 seconds
+        setTimeout(function() {
+            document.querySelector('.errormessage').style.display = 'none';
+        }, 2000); // 4 seconds
+    });
+</script>
+
+    <div class="login-wrap">
+
+        <div class="login-html">
+            <div>
+                <img class="logo" src="{% static 'images/logo.png' %}" alt="Diviser">
+            </div>
+
+            <div>
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="groupname" class="form-label">Group Name</label>
+                        <input type="text" class="form-control" id="groupname" name="groupname">
+                    </div>
+                    <div class="button-container">
+                        <button type="submit" class="btn btn-primary">Create</button>
+                    </div>
+                </form>
+                
+
+                    <div class="or">OR</div>
+
+
+                    <form method="get">
+                        <div class="mb-3">
+                            <label for="joingroup" class="form-label">Join Group</label>
+                            <input type="text" class="form-control" id="joingroup" name="joingroup">
+                        </div>
+                        <div class="button-container">
+                            <button type="submit" class="btn btn-primary">Join</button>
+                        </div>
+                    </form>
+            </div>
+        
+        </div>
+    </div>
+</body>
+</html>

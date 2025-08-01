@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Expense</title>
+    <link rel="stylesheet" href="{% static 'css/home_css.css' %}">
+    <script src="{% static 'js/home.js' %}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="login-wrap">
+  <h2 class="exhed" style="text-align: center;">{{expense.group_id}}</h2>
+  <div class="login-html">
+    <div class="expenselst">
+      <br>
+      <form method="POST">
+        {% csrf_token %}
+
+        <div class="mb-3">
+          <label for="about" class="form-label">About</label>
+          <input type="text"  value="{{ expense.description }}" class="form-control" id="about" name="about"> 
+        </div>
+
+        <div class="mb-3">
+          <label for="expenseby" class="form-label">Expense By:</label>
+          <select class="form-select" id="expenseby" name="expenseby">
+
+              {% for user in users %}
+              <option value="{{ user.id }}" {% if user.id == expense.expense_by.id %}selected{% endif %}>{{ user.user_id}}</option>
+              {% endfor %}
+          </select>
+      </div>
+      
+      <div class="mb-3">
+        <label for="expensefor" class="form-label">Expense For:</label>
+        <select class="form-select" id="expensefor" name="expensefor" multiple>
+            {% for user in users %}
+            <option value="{{ user.id }}" {% if user.id in expense_for_ids %}selected{% endif %}>{{ user.user_id }}</option>
+
+            {% endfor %}
+        </select>
+    </div>
+    
+      
+
+        <div class="mb-3">
+          <label for="amount" class="form-label">Amount</label>
+          <input type="number" class="form-control" id="amount" name="amount" value="{{ expense.amount }}">
+        </div>
+
+        <div class="button-container">
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

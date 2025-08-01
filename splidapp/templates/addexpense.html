@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diviser</title>
+    <link rel="stylesheet" href="{% static 'css/home_css.css' %}">
+    <script src="{% static 'js/home.js' %}"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+
+  <div class="login-wrap">
+    <h2 class="exhed" style="text-align: center;">{{groupname}}</h2>
+    <div class="login-html">
+      <div class="expenselst">
+        <br>
+        <form method="POST"> <!-- Ensure the form has the POST method -->
+          {% csrf_token %} <!-- Add CSRF token for security -->
+          <div class="mb-3">
+            <label for="about" class="form-label">About</label>
+            <input type="text" class="form-control" id="about" name="about"> <!-- Add name attribute -->
+          </div>
+  
+          <div class="mb-3">
+            <label for="expenseby" class="form-label">Expense By:</label>
+            <select class="form-select" id="expenseby" name="expenseby">
+              {% for i in user %}
+              <option value="{{ i.id }}">{{ i.username }}</option>
+              {% endfor %}
+            </select>
+          </div>
+  
+          <div class="mb-3">
+            <label for="expensefor" class="form-label">Expense For:</label>
+            <select class="form-select" id="expensefor" name="expensefor" multiple style="color: black;">
+                {% for i in user %}
+                    <option value="{{ i.id }}" {% if i.id in expense_for_ids %} selected {% endif %}>{{ i.username }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        
+  
+          <div class="mb-3">
+            <label for="amount" class="form-label">Amount</label>
+            <input type="number" class="form-control" id="amount" name="amount"> <!-- Add name attribute -->
+          </div>
+  
+          <div class="button-container">
+            <button type="submit" class="btn btn-primary">Save</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const expenseForSelect = document.getElementById('expensefor');
+      expenseForSelect.addEventListener('mousedown', function(event) {
+          const option = event.target;
+          if (option.tagName === 'OPTION') {
+              option.selected = !option.selected;
+              event.preventDefault(); // Prevent the default behavior of the click event
+          }
+      });
+  });
+  </script>
+
+</body>
+</html>

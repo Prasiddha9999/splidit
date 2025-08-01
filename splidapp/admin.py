@@ -13,7 +13,6 @@ from .models import User, Group, GroupMembers, Expense
 # class ExpenseAdmin(admin.ModelAdmin):
 #     list_display = ('id', 'name', 'amount', 'date') 
 
-admin.site.register(User)  
 admin.site.register(Group)  
 admin.site.register(GroupMembers)  
 admin.site.register(Expense)  

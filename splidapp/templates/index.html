@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Splid</title>
+    <title>Diviser</title>
     <link rel="stylesheet" href="{% static 'css/index_css.css' %}">
     <script src="{% static 'js/index.js' %}"></script>
 </head>
@@ -22,7 +22,11 @@
 </script>
 
     <div class="login-wrap">
+
         <div class="login-html">
+            <div>
+                <img class="logo" src="{% static 'images/logo.png' %}" alt="Diviser">
+            </div>
           <form action="{% url 'login_view' %}" class="login" name="login-form" method="post">
             {% csrf_token %}
                 {% csrf_token %}

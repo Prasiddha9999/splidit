@@ -1,0 +1,140 @@
+body{
+	margin:0;
+	color:#6a6f8c;
+	background:#ffffff;
+	font:600 16px/18px 'Open Sans',sans-serif;
+}
+*,:after,:before{box-sizing:border-box}
+.clearfix:after,.clearfix:before{content:'';display:table}
+.clearfix:after{clear:both;display:block}
+a{color:inherit;text-decoration:none}
+
+.login-wrap{
+	width:100%;
+	margin:auto;
+	max-width:525px;
+	min-height:100vh;
+	position:relative;
+	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
+}
+.login-html{
+	width:100%;
+	height:100%;
+	position:absolute;
+	padding:90px 70px 50px 70px;
+	background:rgba(40,57,101,.9);
+}
+
+
+.errormessage{
+	color: red;
+}
+.logo {
+    display: block;
+    margin-top: -50px;
+	margin-bottom: 50px;
+	margin-left: auto;
+	margin-right: auto;
+    width: 250px; 
+    height: auto; 
+}
+
+.form-label{
+	color: aliceblue;
+}
+.or{
+	margin: 40px;
+	text-align: center;
+	font-size: large;
+	color:#ffffff;
+}
+.btn.btn-primary {
+    background-color: rgb(19, 160, 19); 
+    color: white; 
+}
+.button-container {
+    text-align: center; /* Center-align the button horizontally */
+}
+
+
+.cover_photo{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+    width: 100%; 
+    height: 200px; 
+}
+.profile_photo{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+    width: 30%; 
+    height: auto; 
+	margin-top: -150px;
+}
+
+.home-header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    text-align: center;
+	color: #ffffff;
+	margin-top: -40px;
+}
+
+.home-header a {
+    text-decoration: none;
+    color: #ffffff;
+	font-size: large;
+}
+
+.table {
+	margin-top: 30px;
+    width: 100%;
+    height: auto;
+    background-color: white;
+
+}
+
+.send-code {
+    display: flex; 
+    align-items: center; 
+}
+
+.send-code input[type="text"] {
+    margin-right: 10px; 
+}
+
+
+.addexpense, .settleup{
+	text-align: center; 
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
+body, html {
+	margin: 0;
+	padding: 0;
+	height: 100%;
+	overflow: hidden;
+}
+
+.expenselst{
+	margin-top: -100px;
+}
+
+.pie{
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+    width: 70%; 
+    height: auto; 
+
+}
+
+.margins{
+	margin-top: -100px;
+}
+.exhed i {
+	font-size: 24px;
+	color: #333;
+}
